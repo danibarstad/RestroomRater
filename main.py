@@ -1,4 +1,6 @@
 def main():
+    # TODO: Use Yelp Fusion API to generate list of establishments based on location provided by user
+
     location = getLocation()                    # get location
     name = getName()                            # get establishment
     number = getNumber()                        # number of bathrooms
@@ -20,8 +22,8 @@ def main():
 
 def getLocation():
     """ gets location from user """
-    # TODO: make sure location is valid
-    
+    # TODO: make sure location is valid. Only enter zip code?
+
     return input('Enter the name of a location: ')
 
 def getName():
