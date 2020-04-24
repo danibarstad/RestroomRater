@@ -5,21 +5,22 @@ def main():
 
     location = yelp.get_location()              # get location
     name = yelp.get_name(location)              # get establishment
-    number = getNumber()                        # number of bathrooms
-    types = getType(number)                     # bathroom types (men, women, unisex, family)
-    changingTable = getChangingTable(types)     # changing table? which?
-    needle = getNeedle()                        # needle disposal?
-    rating = getRating()                        # rating
-    comment = getComment()                      # comments
+    # number = getNumber()                        # number of bathrooms
+    # types = getType(number)                     # bathroom types (men, women, unisex, family)
+    # changingTable = getChangingTable(types)     # changing table? which?
+    # needle = getNeedle()                        # needle disposal?
+    # rating = getRating()                        # rating
+    # comment = getComment()                      # comments
 
-    print(location)
+    # print(location)
+    # print(name)
+    # print(number)
+    # print(types)
+    # print(changingTable)
+    # print(needle)
+    # print(rating)
+    # print(comment)
     print(name)
-    print(number)
-    print(types)
-    print(changingTable)
-    print(needle)
-    print(rating)
-    print(comment)
 
 
 # def getLocation():
