@@ -1,8 +1,10 @@
+import yelp
+
 def main():
     # TODO: Use Yelp Fusion API to generate list of establishments based on location provided by user
 
-    location = getLocation()                    # get location
-    name = getName()                            # get establishment
+    location = yelp.get_location()              # get location
+    name = yelp.get_name(location)              # get establishment
     number = getNumber()                        # number of bathrooms
     types = getType(number)                     # bathroom types (men, women, unisex, family)
     changingTable = getChangingTable(types)     # changing table? which?
@@ -20,17 +22,17 @@ def main():
     print(comment)
 
 
-def getLocation():
-    """ gets location from user """
-    # TODO: make sure location is valid. Only enter zip code?
+# def getLocation():
+#     """ gets location from user """
+#     # TODO: make sure location is valid. Only enter zip code?
 
-    return input('Enter the name of a location: ')
+#     return input('Enter the name of a location: ')
 
-def getName():
-    """ gets names of establishmen of bathroom(s) to be rated """
-    # TODO: location should generate list of establishments. user should not enter manually
+# def getName():
+#     """ gets names of establishmen of bathroom(s) to be rated """
+#     # TODO: location should generate list of establishments. user should not enter manually
 
-    return input('Enter the name of an establishment: ')
+#     return input('Enter the name of an establishment: ')
 
 def getNumber():
     """ the number of bathrooms in a single establishment """
