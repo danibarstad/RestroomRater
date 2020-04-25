@@ -80,6 +80,9 @@ def getNeedle():
         return False
 
 def getHandicap():
+    """ returns True if the bathrooms are handicap accessible """
+    # TODO: should do this for each bathroom?
+    
     handicap = input('Is this bathroom handicap accessible? (\'y\' or \'n\'): ')
     if handicap == 'y':
         return True
