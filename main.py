@@ -1,39 +1,43 @@
 import yelp
 
 def main():
-    # TODO: Use Yelp Fusion API to generate list of establishments based on location provided by user
-
     location = yelp.get_location()              # get location
-    name = yelp.get_name(location)              # get establishment
-    # number = getNumber()                        # number of bathrooms
-    # types = getType(number)                     # bathroom types (men, women, unisex, family)
-    # changingTable = getChangingTable(types)     # changing table? which?
-    # needle = getNeedle()                        # needle disposal?
-    # rating = getRating()                        # rating
-    # comment = getComment()                      # comments
+    name = yelp.get_name(location)              # gets list of establishments
+    num = displayNames(name)                    # displays list of establishments and user chooses which one to evaluate
+    number = getNumber()                        # number of bathrooms
+    types = getType(number)                     # bathroom types (men, women, unisex, family)
+    changingTable = getChangingTable(types)     # changing table? which?
+    needle = getNeedle()                        # needle disposal?
+    handicap = getHandicap()                    # handicap accessibility
+    rating = getRating()                        # rating
+    comment = getComment()                      # comments
 
-    # print(location)
+    displaysResults(location, name, num, number, types, changingTable, needle, handicap, rating, comment)
+
+
+def displaysResults(location, names, nameNum, bathrooms, types, tables, needle, handicap, rating, comment):
+    print('*****************')
+    print(f'Location: {location}')
+    print(f'Name: {names[nameNum-1]}')
+    print(f'Number of bathrooms: {bathrooms}')
+    print(f'Types of bathrooms: {types}')
+    print(f'Does this bathroom have a changing table?: {tables}')
+    print(f'Does this bathroom have a needle disposal box?: {needle}')
+    print(f'Is this bathroom handicap accessible?: {handicap}')
+    print(f'Rating: {rating}/5')
+    print(f'Comments: {comment}')
     # print(name)
-    # print(number)
-    # print(types)
-    # print(changingTable)
-    # print(needle)
-    # print(rating)
-    # print(comment)
-    print(name)
+    print('*****************')
 
+def displayNames(names):
+    """ display list of restaurants in area """
 
-# def getLocation():
-#     """ gets location from user """
-#     # TODO: make sure location is valid. Only enter zip code?
-
-#     return input('Enter the name of a location: ')
-
-# def getName():
-#     """ gets names of establishmen of bathroom(s) to be rated """
-#     # TODO: location should generate list of establishments. user should not enter manually
-
-#     return input('Enter the name of an establishment: ')
+    counter = 0
+    print('Choose a restaurant:')
+    for n in names:
+        counter += 1
+        print(f'{counter}. {n}')
+    return int(input('Enter a number: '))
 
 def getNumber():
     """ the number of bathrooms in a single establishment """
@@ -73,6 +77,13 @@ def getNeedle():
     if needle == 'y':
         return True
     elif needle == 'n':
+        return False
+
+def getHandicap():
+    handicap = input('Is this bathroom handicap accessible? (\'y\' or \'n\'): ')
+    if handicap == 'y':
+        return True
+    elif handicap == 'n':
         return False
 
 def getRating():
