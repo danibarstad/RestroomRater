@@ -4,15 +4,19 @@ def main():
     location = yelp.get_location()              # get location
     name = yelp.get_name(location)              # gets list of establishments
     num = displayNames(name)                    # displays list of establishments and user chooses which one to evaluate
-    number = getNumber()                        # number of bathrooms
-    types = getType(number)                     # bathroom types (men, women, unisex, family)
-    changingTable = getChangingTable(types)     # changing table? which?
-    needle = getNeedle()                        # needle disposal?
-    handicap = getHandicap()                    # handicap accessibility
-    rating = getRating()                        # rating
-    comment = getComment()                      # comments
+    public = publicBathroom(name, num)
+    if public == True:
+        number = getNumber()                        # number of bathrooms
+        types = getType(number)                     # bathroom types (men, women, unisex, family)
+        changingTable = getChangingTable(types)     # changing table? which?
+        needle = getNeedle()                        # needle disposal?
+        handicap = getHandicap()                    # handicap accessibility
+        rating = getRating()                        # rating
+        comment = getComment()                      # comments
 
-    displaysResults(location, name, num, number, types, changingTable, needle, handicap, rating, comment)
+        displaysResults(location, name, num, number, types, changingTable, needle, handicap, rating, comment)
+    else:
+        print('oh well!')
 
 
 def displaysResults(location, names, nameNum, bathrooms, types, tables, needle, handicap, rating, comment):
@@ -28,6 +32,13 @@ def displaysResults(location, names, nameNum, bathrooms, types, tables, needle, 
     print(f'Comments: {comment}')
     # print(name)
     print('*****************')
+
+def publicBathroom(name, num):
+    publicBath = input(f'Does {name[num-1]} have a public bathroom? (\'y\' or \'n\'): ')
+    if publicBath == 'y':
+        return True
+    elif publicBath == 'n':
+        return False
 
 def displayNames(names):
     """ display list of restaurants in area """
@@ -82,7 +93,7 @@ def getNeedle():
 def getHandicap():
     """ returns True if the bathrooms are handicap accessible """
     # TODO: should do this for each bathroom?
-    
+
     handicap = input('Is this bathroom handicap accessible? (\'y\' or \'n\'): ')
     if handicap == 'y':
         return True
