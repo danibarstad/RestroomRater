@@ -34,6 +34,8 @@ def displaysResults(location, names, nameNum, bathrooms, types, tables, needle, 
     print('*****************')
 
 def publicBathroom(name, num):
+    """ checks if the establishment has a public bathroom or not """
+    
     publicBath = input(f'Does {name[num-1]} have a public bathroom? (\'y\' or \'n\'): ')
     if publicBath == 'y':
         return True
@@ -78,7 +80,6 @@ def getChangingTable(types):
         elif yesNo == 'n':
             tables[b] = False
     return tables
-
 
 def getNeedle():
     """ returns True if an establishment's bathrooms have needle disposal boxes """
