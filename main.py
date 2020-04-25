@@ -1,20 +1,20 @@
 import yelp
 
 def main():
-    location = yelp.get_location()              # get location
-    name = yelp.get_name(location)              # gets list of establishments
-    num = displayNames(name)                    # displays list of establishments and user chooses which one to evaluate
-    public = publicBathroom(name, num)
+    location = yelp.get_location()                  # get location
+    names = yelp.get_name(location)                 # gets list of establishments
+    index = displayNames(names)                     # displays list of establishments and user chooses which one to evaluate
+    public = publicBathroom(names, index)           # does this establishment have public restrooms?
     if public == True:
-        number = getNumber()                        # number of bathrooms
-        types = getType(number)                     # bathroom types (men, women, unisex, family)
+        numberOf = getNumber()                      # number of bathrooms
+        types = getType(numberOf)                   # bathroom types (men, women, unisex, family)
         changingTable = getChangingTable(types)     # changing table? which?
-        needle = getNeedle()                        # needle disposal?
+        needleDisposal = getNeedle()                # needle disposal?
         handicap = getHandicap()                    # handicap accessibility
         rating = getRating()                        # rating
         comment = getComment()                      # comments
 
-        displaysResults(location, name, num, number, types, changingTable, needle, handicap, rating, comment)
+        displaysResults(location, names, index, numberOf, types, changingTable, needleDisposal, handicap, rating, comment)
     else:
         print('oh well!')
 
@@ -35,7 +35,7 @@ def displaysResults(location, names, nameNum, bathrooms, types, tables, needle, 
 
 def publicBathroom(name, num):
     """ checks if the establishment has a public bathroom or not """
-    
+
     publicBath = input(f'Does {name[num-1]} have a public bathroom? (\'y\' or \'n\'): ')
     if publicBath == 'y':
         return True
