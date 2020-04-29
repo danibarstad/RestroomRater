@@ -10,4 +10,5 @@ class TestZipCode(TestCase):
     def test_zip_code_is_integer(self):
         self.assertIsInstance(78626, int)
         self.assertNotEqual('qwert', int)
-        self.assertGreater(yelp.get_location(), 0)
+        self.assertGreater(len(str(yelp.get_location())), 4)
+        self.assertLess(len(str(yelp.get_location())), 6)
