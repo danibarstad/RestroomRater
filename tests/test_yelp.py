@@ -1,6 +1,6 @@
 import yelp
 from unittest import TestCase
-from unittest.mock import patch
+from unittest.mock import patch, call
 
 class TestZipCode(TestCase):
 
