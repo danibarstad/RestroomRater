@@ -2,6 +2,11 @@ from django.db import models
 
 # Create your models here.
 
+class Result(models.Model):
+    city = models.CharField(max_length=200)
+    
+
+
 class Establishment(models.Model):
     name = models.CharField(max_length=200, blank=False)
     city = models.CharField(max_length=200, blank=False)
