@@ -4,27 +4,21 @@
 
 <p>Welcome to Restroom Rater</p>
 
-<form method="POST" action="{% url ' home_form' %}">
+<form method="POST" action="{% url 'homepage' %}">
     {% csrf_token %}
-    <div class='result-form'>
-        <table>
-        {{ new_result_form.as_table }}
-        </table>
-    </div>
+    {{ new_zip_form }}
+    <button type="submit">Add</button>
 </form>
 
-{% endblock %}
-
-<!-- <h2>Establishments</h2>
-
-{% for establishment in establishments %}
+{% for city in cities %}
 
 <div>
-    {{ establishment.name }}
+    {{ city.zipCode }}
 </div>
 
 {% empty %}
 
-<p>There are no establishments</p>
+<p>There are no cities</p>
 
-{% endfor %} TODO: use this later, somewhere else.-->
+{% endfor %}
+{% endblock %}

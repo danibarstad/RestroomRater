@@ -2,9 +2,8 @@ from django.db import models
 
 # Create your models here.
 
-class Result(models.Model):
-    city = models.CharField(max_length=200)
-    
+class ZipCode(models.Model):
+    zipCode = models.CharField(max_length=5)
 
 
 class Establishment(models.Model):

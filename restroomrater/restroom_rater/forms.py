@@ -1,7 +1,7 @@
 from django import forms
-from .models import Result, Establishment
+from .models import ZipCode
 
-class NewResultForm(forms.ModelForm):
+class NewZipCodeForm(forms.ModelForm):
     class Meta:
-        model = Result
-        fields = ('city',)
+        model = ZipCode
+        fields = ('zipCode',)
