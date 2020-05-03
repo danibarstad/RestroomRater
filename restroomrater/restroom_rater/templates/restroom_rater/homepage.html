@@ -2,23 +2,30 @@
 
 {% block content %}
 
-<p>Welcome to Restroom Rater</p>
+    <p>Welcome to Restroom Rater</p>
 
-<form method="POST" action="{% url 'homepage' %}">
+<!-- <form method="POST" action="{% url 'homepage' %}">
     {% csrf_token %}
     {{ new_zip_form }}
     <button type="submit">Add</button>
-</form>
+</form> -->
 
-{% for city in cities %}
+    <form method="GET" action="{% url 'homepage' %}">
+        {% csrf_token %}
+        <label>Zip Code: </label>
+        <input name="zip_code">
+        <button type="submit">Submit</button>
+    </form>
 
-<div>
-    {{ city.zipCode }}
-</div>
+    {% for city in cities %}
 
-{% empty %}
+        <div>
+            {{ city.zipCode }}
+        </div>
 
-<p>There are no cities</p>
+    {% empty %}
 
-{% endfor %}
+        <p>There are no cities</p>
+
+    {% endfor %}
 {% endblock %}
