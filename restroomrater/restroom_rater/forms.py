@@ -1,11 +1,4 @@
 from django import forms
-from .models import ZipCode
 
-class NewZipCodeForm(forms.ModelForm):
-    class Meta:
-        model = ZipCode
-        fields = ('zipCode',)
-
-class get_zip(forms.TextInput):
-    class Meta:
-        fields = ('zip_code',)
+class get_zip(forms.Form):
+    zip_code = forms.CharField(required=True, label='Zip Code', max_length=5)
