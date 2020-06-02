@@ -1,6 +1,6 @@
 import os
 import requests
-from .models import Establishment
+from .models import Venue
 from django.db import IntegrityError
 
 YELP_KEY = os.environ.get('YELP_API_KEY')
@@ -22,12 +22,12 @@ def get_name(location):
     try:
         response = requests.get(url, params=params, headers=headers).json()
         for venue in response['businesses']:
-            venues.append(venue['name'])
+            # venues.append(venue['name'])
 
             venue_name = venue['name']
-            venue_city = venue['city']
-            venue_city = venue['state']
-            new_venue = Establishment(name=venue_name, city=venue_city, state=venue_state)
+            venue_city = venue['location']['city']
+            venue_state = venue['location']['state']
+            new_venue = Venue(name=venue_name, city=venue_city, state=venue_state)
             new_venue.save()
     
     except IntegrityError as e:

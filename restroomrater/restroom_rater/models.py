@@ -1,8 +1,9 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 
-class Establishment(models.Model):
+class Venue(models.Model):
     name = models.CharField(max_length=200, blank=False)
     city = models.CharField(max_length=200, blank=False)
     state = models.CharField(max_length=2, blank=False)    # What about international?
@@ -22,7 +23,7 @@ class Restroom(models.Model):
         (UNISEX, 'Unisex'),
         (FAMILY, 'Family')
     ]
-    name = models.ForeignKey(Establishment, blank=False, on_delete=models.CASCADE)
+    name = models.ForeignKey(Venue, blank=False, on_delete=models.CASCADE)
     public = models.BooleanField(blank=False)
     number = models.IntegerField()
     rest_type = models.CharField(
@@ -42,7 +43,7 @@ class Restroom(models.Model):
 
 
 class Review(models.Model):
-    establishment = models.ForeignKey(Establishment, blank=False, on_delete=models.CASCADE)
+    venue = models.ForeignKey(Venue, blank=False, on_delete=models.CASCADE)
     user = models.ForeignKey('auth.User', blank=False, on_delete=models.CASCADE)
     rating = models.IntegerField()
     title = models.CharField(max_length=200, blank=False)
@@ -54,5 +55,5 @@ class Review(models.Model):
         self.save()
     
     def __str__(self):
-        return f'Review for user ID {self.user} for establishment ID {self.establishment} with rating {self.rating} title {self.title} review {self.comment} posted on {self.posted_date}'
+        return f'Review for user ID {self.user} for establishment ID {self.venue} with rating {self.rating} title {self.title} review {self.comment} posted on {self.posted_date}'
         # return 'Review for user ID {} for establishment ID {} with title {} review {} posted on {}'.format(self.user, self.establishment, self.title, self.comment, self.posted_date)

@@ -2,7 +2,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import get_zip
 from . import yelp_api
-from .models import Establishment
+from .models import Venue
 
 # Create your views here.
 
@@ -16,5 +16,5 @@ def homepage(request):
 
 
 def venue_detail(request, venue_pk):
-    venue = get_object_or_404(Establishment, pk=venue_pk)
-    return render(request, 'venue_detail.html', {'venue': venue})
+    venue = get_object_or_404(Venue, pk=venue_pk)
+    return render(request, 'restroom_rater/venue_detail.html', {'venue': venue})
