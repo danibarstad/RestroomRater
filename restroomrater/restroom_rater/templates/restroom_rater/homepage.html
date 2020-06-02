@@ -9,16 +9,16 @@
         <input type='submit' value='Search'>
     </form>
 
-    {% for e in establishments %}
+    {% for venue in venues %}
 
-        <div>
+        <div id="venue_{{ venue.pk }}">
             <!-- TODO: create link for each returned establishment -->
-            {{ e }}
+            <p><a href="{% url 'venue_detail' venue_pk=venue.pk %}">{{ venue }}</a></p>
         </div>
 
     {% empty %}
 
-        <p>There are no cities</p>
+        <p>There are no venues</p>
 
     {% endfor %}
 {% endblock %}

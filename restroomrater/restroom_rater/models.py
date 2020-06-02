@@ -8,7 +8,7 @@ class Establishment(models.Model):
     state = models.CharField(max_length=2, blank=False)    # What about international?
 
     def __str__(self):
-        return f'Establishment name: {self.name} in {self.city}, {self.state}'
+        return f'Venue name: {self.name} in {self.city}, {self.state}'
 
 
 class Restroom(models.Model):
