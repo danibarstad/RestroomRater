@@ -4,16 +4,21 @@
 
     <p>Welcome to Restroom Rater</p>
 
-    <form method="POST" action="{% url 'homepage' %}">
+    <!-- <form method="POST" action="{% url 'homepage' %}">
         {% csrf_token %}
         {{ new_zip_form }}
         <button type="submit">Add</button>
+    </form> -->
+
+    <form action="{% url 'homepage' %}">
+        {{ new_zip_form }}
+        <input type='submit' value='Search'>
     </form>
 
     {% for city in cities %}
 
         <div>
-            {{ city.zipCode }}
+            {{ city }}
         </div>
 
     {% empty %}

@@ -108,7 +108,7 @@ def get_rating():
     # stars = [1, 2, 3, 4, 5]
     return int(input('Enter a rating 1-5: '))
 
-def getComment():
+def get_comment():
     """ get user's overall comments for an establishment's bathroom(s) """
 
     return input('Comments?: ')
