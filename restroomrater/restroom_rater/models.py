@@ -7,9 +7,10 @@ class Venue(models.Model):
     name = models.CharField(max_length=200, blank=False)
     city = models.CharField(max_length=200, blank=False)
     state = models.CharField(max_length=2, blank=False)    # What about international?
+    zip_code = models.IntegerField(blank=False)
 
     def __str__(self):
-        return f'Venue name: {self.name} in {self.city}, {self.state}'
+        return f'Venue name: {self.name} in {self.city}, {self.state} {self.zip_code}'
 
 
 class Restroom(models.Model):

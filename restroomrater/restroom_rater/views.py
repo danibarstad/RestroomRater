@@ -7,12 +7,21 @@ from .models import Venue
 # Create your views here.
 
 def homepage(request):
+    return render(request, 'restroom_rater/homepage.html')
+
+
+def venue_list(request):
     new_zip_form = get_zip()
     search_zip = request.GET.get('zip_code')
 
-    venues = yelp_api.get_name(search_zip)
+    # venues = yelp_api.get_name(search_zip)
 
-    return render(request, 'restroom_rater/homepage.html', { 'venues': venues, 'new_zip_form': new_zip_form})
+    if search_zip:
+        venues = Venue.objects.filter(name__icontains=search_zip).order_by('name')
+    else:
+        venues = Venue.objects.all().order_by('name')
+
+    return render(request, 'restroom_rater/venue_list.html', { 'venues': venues, 'new_zip_form': new_zip_form, 'search_zip': search_zip})
 
 
 def venue_detail(request, venue_pk):
