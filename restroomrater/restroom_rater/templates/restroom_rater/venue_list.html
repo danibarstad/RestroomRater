@@ -2,19 +2,11 @@
 
 {% block content %}
 
-    <!-- <form action="{% url 'venue_list' %}">
-        {{ new_zip_form }}
-        <input type='submit' value='Search'>
-    </form> -->
-
     {% for venue in venues %}
 
         <div id="venue_{{ venue.pk }}">
             <p><a href="{% url 'venue_detail' venue_pk=venue.pk %}">{{ venue.name }}</a></p>
         </div>
-        <!-- <div>
-            {{ venue }}
-        </div> -->
         
 
     {% empty %}

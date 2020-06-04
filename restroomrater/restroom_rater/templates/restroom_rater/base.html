@@ -8,7 +8,12 @@
 
         <h1>Restroom Rater</h1>
 
-        {{ search_form }}
+        
+        <form action="{% url 'venue_list' %}">
+            {{ search_zip_form }}
+            <input type='submit' value='Search'>
+        </form>
+        
 
         {% block content %}
         {% endblock %}
