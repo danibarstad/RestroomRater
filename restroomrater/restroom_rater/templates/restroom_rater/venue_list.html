@@ -1,4 +1,5 @@
 {% extends 'restroom_rater/base.html' %}
+
 {% block content %}
 
     <form action="{% url 'venue_list' %}">
@@ -21,4 +22,5 @@
         <p>There are no venues</p>
 
     {% endfor %}
+
 {% endblock %}
