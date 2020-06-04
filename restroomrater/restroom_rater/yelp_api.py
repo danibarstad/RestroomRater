@@ -26,10 +26,18 @@ def get_name(location):
         response = requests.get(url, params=params, headers=headers).json()
         for venue in response['businesses']:
             venue_name = venue['name']
+            venue_address = venue['location']['address1']
             venue_city = venue['location']['city']
             venue_state = venue['location']['state']
             venue_zip = venue['location']['zip_code']
-            new_venue = Venue(name=venue_name, city=venue_city, state=venue_state, zip_code=venue_zip)
+            venue_image = venue['image_url']
+            new_venue = Venue(
+                name=venue_name, 
+                address=venue_address, 
+                city=venue_city, 
+                state=venue_state, 
+                zip_code=venue_zip, 
+                image=venue_image)
             new_venue.save()
     
     except IntegrityError as e:
