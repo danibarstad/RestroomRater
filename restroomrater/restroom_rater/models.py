@@ -1,5 +1,6 @@
 from django.db import models
 import datetime
+from django.core.validators import MinValueValidator
 
 
 
@@ -28,7 +29,7 @@ class Restroom(models.Model):
     ]
     name = models.ForeignKey(Venue, blank=False, on_delete=models.CASCADE)
     public = models.BooleanField(blank=False)
-    number = models.IntegerField()
+    number = models.IntegerField(MinValueValidator(limit_value=0))
     rest_type = models.CharField(
         max_length=1, 
         choices=RESTROOM_TYPE_CHOICES, 

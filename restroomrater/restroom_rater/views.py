@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from . import yelp_api
 from .models import Venue
+from .forms import RestroomForm
 
 
 def homepage(request):
@@ -22,4 +23,12 @@ def venue_list(request):
 
 def venue_detail(request, venue_pk):
     venue = get_object_or_404(Venue, pk=venue_pk)
-    return render(request, 'restroom_rater/venue_detail.html', {'venue': venue})
+    restroom = RestroomForm()
+    return render(request, 'restroom_rater/venue_detail.html', {'venue': venue, 'restroom': restroom})
+
+
+def venue_restroom(request, venue_pk):
+    restroom = RestroomForm()
+    venue = get_object_or_404(Venue, pk=venue_pk)
+    
+    return render(request, 'restroom_rater/venue_detail.html', { 'restroom': restroom, 'venue': venue })
