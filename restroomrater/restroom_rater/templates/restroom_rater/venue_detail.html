@@ -7,9 +7,27 @@
     <P>{{ venue.city }}, {{ venue.state }} {{ venue.zip_code }}</p>
 
     <br>
-    
-    <form action={% url view_restroom &}>
-        {{ restroom }}
-    </form>
+
+    <div>
+        <form action={% url view_detail &}>
+            {{ restroom_form }}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    {% if restrooms %}
+    <div>
+        {{ restrooms.public }}
+        {{ restrooms.number }}
+        {{ restrooms.rest_type }}
+        {{ restroom.baby }}
+        {{ restrooms.needle }}
+        {{ restrooms.handicap }}
+    </div>
+
+    {% else %}
+    <p>No restroom information currently available</p>
+
+    {% endif %}
 
 {% endblock %}
