@@ -27,8 +27,8 @@ def venue_detail(request, venue_pk):
     return render(request, 'restroom_rater/venue_detail.html', {'venue': venue, 'restroom_form': restroom_form})
 
 
-def venue_restroom(request, venue_pk):
-    restroom_form = RestroomForm()
-    venue = get_object_or_404(Venue, pk=venue_pk)
+# def venue_restroom(request, venue_pk):
+#     restroom_form = RestroomReviewForm()
+#     venue = get_object_or_404(Venue, pk=venue_pk)
     
-    return render(request, 'restroom_rater/venue_detail.html', { 'restroom_form': restroom_form, 'venue': venue })
+#     return render(request, 'restroom_rater/venue_detail.html', { 'restroom_form': restroom_form, 'venue': venue })
