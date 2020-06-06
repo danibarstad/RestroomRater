@@ -9,16 +9,19 @@
     <br>
 
     <div>
-        <form action={% url view_detail &}>
+        <form method="POST" action="{% url 'venue_detail' venue_pk=venue.pk %}">
+            {% csrf_token %}
             {{ restroom_form.as_p }}
             <input type="submit" value="Submit">
         </form>
     </div>
 
-    {% if restrooms %}
-    <div>
-        {{ restrooms.as_p }}
-    </div>
+    {% if review %}
+    {% for r in review %}
+        <div>
+            {{ review.title }}
+        </div>    
+    {% endfor %}
 
     {% else %}
     <p>No restroom information currently available</p>

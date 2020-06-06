@@ -1,8 +1,8 @@
-# import requests
 from django.shortcuts import render, redirect, get_object_or_404
 from . import yelp_api
-from .models import Venue
+from .models import Venue, RestroomReview
 from .forms import RestroomForm
+from django.utils import timezone
 
 
 def homepage(request):
@@ -23,12 +23,22 @@ def venue_list(request):
 
 def venue_detail(request, venue_pk):
     venue = get_object_or_404(Venue, pk=venue_pk)
-    restroom_form = RestroomForm()
+
+    if request.method == 'POST':
+        restroom_form = RestroomForm(request.POST, request.FILES, instance=None)
+        if restroom_form.is_valid():
+            review = restroom_form.save(commit=False)
+            review.user = request.user
+            review.venue = venue
+            review.posted_date = timezone.now()
+            review.save()
+            return redirect('review_detail', review_pk=review.pk)
+    else:
+        restroom_form = RestroomForm()
+
     return render(request, 'restroom_rater/venue_detail.html', {'venue': venue, 'restroom_form': restroom_form})
 
 
-# def venue_restroom(request, venue_pk):
-#     restroom_form = RestroomReviewForm()
-#     venue = get_object_or_404(Venue, pk=venue_pk)
-    
-#     return render(request, 'restroom_rater/venue_detail.html', { 'restroom_form': restroom_form, 'venue': venue })
+def review_detail(request, review_pk):
+    review = get_object_or_404(RestroomReview, pk=review_pk)
+    return render(request, 'restroom_rater/review_detail.html', {'review': review})

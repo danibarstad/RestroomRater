@@ -1,0 +1,20 @@
+{% extends 'restroom_rater/base.html' %}
+{% block content %}
+
+<!-- {% csrf_token %} -->
+<div>
+
+    <p>{{ review.title}}</p>
+    <p>{{ review.user }}</p>
+    <p>{{ review.public }}</p>
+    <p>{{ review.rest_type }}</p>
+    <p>{{ review.baby }}</p>
+    <p>{{ review.needle }}</p>
+    <p>{{ review.handicap }}</p>
+    <p>{{ review.rating }}</p>
+    <p>{{ review.comment }}</p>
+    <p>{{ review.posted_date }}</p>
+
+</div>
+
+{% endblock %}
