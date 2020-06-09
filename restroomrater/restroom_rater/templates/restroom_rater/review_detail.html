@@ -7,11 +7,11 @@
     <p>Title: {{ review.title}}</p>
     <p>by <a href="{% url 'user_profile' user_pk=user.pk %}">{{ review.user }}</a></p>
     <p>Public: {{ review.public }}</p>
-    <p>Type: {{ review.rest_type }}</p>
+    <p>Type: {{ review.get_rest_type_display }}</p>
     <p>Changing Table: {{ review.baby }}</p>
     <p>Sharps Container: {{ review.needle }}</p>
     <p>Handicap Accessible: {{ review.handicap }}</p>
-    <p>Rating: {{ review.rating }}</p>
+    <p>Rating: {{ review.get_rating_display }}</p>
     <p>Comment: {{ review.comment }}</p>
     <p>Date Posted: {{ review.posted_date }}</p>
 
