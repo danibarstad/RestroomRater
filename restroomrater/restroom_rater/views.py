@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404
 from . import yelp_api
-from .models import Venue, RestroomReview
 from .forms import RestroomForm
 from django.utils import timezone
+from .models import Venue, RestroomReview
+from django.shortcuts import render, redirect, get_object_or_404
 
 
 def homepage(request):

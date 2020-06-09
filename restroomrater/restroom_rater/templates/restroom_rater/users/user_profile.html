@@ -1,0 +1,30 @@
+{% extends 'restroom_rater/base.html' %}
+{% block content %}
+
+<h2 id='username'>{{ user.username }}</h2>
+
+<div class='profile_info'>
+    <p id='users_name'>{{ user.first_name }} {{ user.last_name }}</p>
+    <p id='email'>{{ user.email }}</p>
+
+    {% if user == request.user and request.user.is_authenticated %}
+        <form action="{% url 'edit_user_profile' %}">
+            <input id='EditProfileForm' type='submit' value='Edit Profile'>
+        </form>
+        {% endif %}
+</div>
+<br>
+
+<h3 id='username_reviews'><u>{{ user.username }}' Reviews</u></h3>
+
+{% for review in reviews %}
+    <div class='review' id='review_{{ review.pk }}'>
+        <h4 class='review_name'>&emsp;<a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a></h4>
+        <p class='review_title'>&emsp;&emsp;{{ review.comment }}</p>
+
+    {% empty %}
+        <p id='no_recors'>No reviews.</p>
+
+    </div>
+{% endfor %}
+{% endblock %}

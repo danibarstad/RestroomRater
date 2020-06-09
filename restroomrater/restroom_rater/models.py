@@ -1,7 +1,14 @@
-from django.db import models
 import datetime
+from django.db import models
+from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
 
+User._meta.get_field('email')._unique = True
+User._meta.get_field('username')._unique = True
+
+User._meta.get_field('email')._blank = False
+User._meta.get_field('last_name')._blank = False
+User._meta.get_field('first_name')._blank = False
 
 
 class Venue(models.Model):
