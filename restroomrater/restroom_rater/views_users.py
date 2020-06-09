@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
-
 from .models import Venue, RestroomReview
 from .forms import UserRegistrationForm, EditProfileForm
+
+from django.shortcuts import render, redirect
 
 from django.contrib import messages
 from django.contrib.auth.models import User

@@ -16,12 +16,13 @@
         </form>
     </div>
 
-    {% if review %}
-    {% for r in review %}
-        <div>
-            {{ review.title }}
-        </div>    
-    {% endfor %}
+    {% if reviews %}
+        {% for review in reviews %}
+            <div class='review' id='review_{{ review.pk }}'>
+                <h4 class='review_name'>&emsp;<a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a> by <a href="{% url 'user_profile' user_pk=user.pk %}">{{ review.user.username }}</a></h4>
+                <p class='review_title'>&emsp;&emsp;{{ review.comment }}</p>
+            </div>
+        {% endfor %}
 
     {% else %}
     <p>No restroom information currently available</p>
