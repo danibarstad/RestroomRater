@@ -23,7 +23,7 @@ def user_profile(request, user_pk):
 
 @login_required
 def my_user_profile(request):
-    return redirect('user_profile', user_pk=request.user_pk)
+    return redirect('user_profile', user_pk=request.user.pk)
 
 
 @login_required
