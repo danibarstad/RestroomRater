@@ -15,7 +15,7 @@
 </div>
 <br>
 
-<h3 id='username_reviews'><u>{{ user.username }}' Reviews</u></h3>
+<h3 id='username_reviews'><u>{{ user.username }}'s Reviews</u></h3>
 
 {% for review in reviews %}
     <div class='review' id='review_{{ review.pk }}'>
@@ -23,7 +23,7 @@
         <p class='review_title'>&emsp;&emsp;{{ review.comment }}</p>
 
     {% empty %}
-        <p id='no_recors'>No reviews.</p>
+        <p id='no_records'>No reviews.</p>
 
     </div>
 {% endfor %}
