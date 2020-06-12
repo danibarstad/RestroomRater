@@ -1,8 +1,8 @@
+from . import yelp_api
+from .forms import RestroomForm
 from django.utils import timezone
-from restroomrater.restroom_rater import yelp_api
-from restroomrater.restroom_rater.forms import RestroomForm
+from .models import RestroomReview, Venue
 from django.shortcuts import get_object_or_404, redirect, render
-from restroomrater.restroom_rater.models import RestroomReview, Venue
 
 
 def venue_list(request):
