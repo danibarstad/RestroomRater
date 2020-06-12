@@ -1,7 +1,7 @@
 {% extends 'restroom_rater/base.html' %}
 {% block content %}
 
-    <img src="{{ venue.image }}" alt="{{ venue.name }}" style="width:25%;height:auto;">
+    <img class="venue_images" src="{{ venue.image }}" alt="{{ venue.name }}">
     <h4>{{ venue.name }}</h4>
     <p>{{ venue.address }}</p>
     <P>{{ venue.city }}, {{ venue.state }} {{ venue.zip_code }}</p>
