@@ -4,6 +4,17 @@
 }
 
 .venue_images {
-    width: 250;
-    height: 250;
+    width: 25%;
+    height: 100%;
+    max-height: 350;
+    overflow: hidden;
+    /* float: left; */
+}
+
+.venue_details {
+    display: inline-block;
+}
+
+.venue_text {
+    float: right;
 }
