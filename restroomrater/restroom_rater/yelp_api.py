@@ -4,7 +4,7 @@ from .models import Venue
 from django.db import IntegrityError
 
 
-YELP_KEY = os.environ.get('YELP_API_KEY')
+YELP_API_KEY = os.environ.get('YELP_API_KEY')
 
 
 def get_location():
@@ -20,7 +20,7 @@ def get_name(location):
     params = {
         'location': f'{location}'
     }
-    headers = {'Authorization': f'Bearer {YELP_KEY}'}
+    headers = {'Authorization': f'Bearer {YELP_API_KEY}'}
 
     try:
         response = requests.get(url, params=params, headers=headers).json()
