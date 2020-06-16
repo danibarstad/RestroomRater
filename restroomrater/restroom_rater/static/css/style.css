@@ -3,6 +3,27 @@
     height: 250;
 } */
 
+* {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+input[type="submit"] {
+    background-color: white;
+    padding: 3px 15px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+    background-color: lavender;
+}
+
+#site-header {
+    background: url('../img/bathroom.jpg');
+    background-size: cover;
+    height: 100%;
+}
+
 .venue_images {
     width: 35%;
     height: auto;
