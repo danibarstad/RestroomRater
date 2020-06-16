@@ -1,7 +1,13 @@
 # RestroomRater
 
-Enter your location and choose any of the establishments in your area!
+Get Yelp API key from [Yelp Fusion](https://www.yelp.com/fusion) and set ```YELP_API_KEY``` environment variable.
 
-How many restrooms?! What kind?! Changing tables?! Needle disposal?!
+### Installation
+```
+pip install requirements.txt
+```
 
-Rate and comment!
+### Run
+```
+python manage.py runserver
+```
