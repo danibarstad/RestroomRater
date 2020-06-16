@@ -13,7 +13,6 @@
         </form>
     {% endif %}
 </div>
-<br>
 
 <h3 id='username_reviews'><u>Reviews</u></h3>
 {% if reviews %}
@@ -22,7 +21,7 @@
             <h4 style="display: inline-block;"><a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a></h4>
             for <a href="{% url 'venue_detail' venue_pk=review.venue.pk %}">{{ review.venue.name }}</a>
             <div class="review_text">
-                <p>{{ review.rating }}\5&emsp;<i>{{ review.comment }}</i></p>
+                {{ review.rating }}\5&emsp;<i>{{ review.comment }}</i>
             </div>
         </div>
     {% endfor %}
