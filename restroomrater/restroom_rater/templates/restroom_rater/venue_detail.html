@@ -20,13 +20,23 @@
 
     {% if reviews %}
         {% for review in reviews %}
-            <div style="display: inline-block" class='rating' id='review_{{ review.pk }}'>
+            <!-- <div style="display: inline-block" id='review_{{ review.pk }}'>
                 <p style="display: inline-block">{{ review.rating }}/5</p>
             </div>
 
             <div style="display: inline-block" class='review' id='review_{{ review.pk }}'>
-                <h4 class='review_name'>&emsp;<a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a> by <a href="{% url 'user_profile' user_pk=user.pk %}">{{ review.user.username }}</a></h4>
-                <p class='review_title'>&emsp;&emsp;{{ review.comment }}</p>
+                <h4>&emsp;<a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a> by <a href="{% url 'user_profile' user_pk=user.pk %}">{{ review.user.username }}</a></h4>
+                <p>&emsp;&emsp;{{ review.comment }}</p>
+            </div> -->
+
+
+
+            <div class="review">
+                <h4 style="display: inline-block;"><a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a></h4> 
+                by <a href="{% url 'user_profile' user_pk=user.pk %}">{{ review.user.username }}</a>
+                <div class="review_text">
+                    {{ review.rating }}\5&emsp;<i>{{ review.comment }}</i>
+                </div>
             </div>
         {% endfor %}
 
