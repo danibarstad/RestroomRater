@@ -2,7 +2,7 @@
 {% block content %}
 
 <div>
-    <h3>{{ review.venue.name }}</h3>
+    <h3><a href="{% url 'venue_detail' venue_pk=review.venue.pk %}">{{ review.venue.name }}</a></h3>
 
     <p>Title: {{ review.title}}</p>
     <p>by <a href="{% url 'user_profile' user_pk=user.pk %}">{{ review.user }}</a></p>
