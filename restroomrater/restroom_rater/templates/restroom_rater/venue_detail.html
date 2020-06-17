@@ -1,5 +1,6 @@
 {% extends 'restroom_rater/base.html' %}
 {% block content %}
+{% load widget_tweaks %}
 
     <img class="venue_images" src="{{ venue.image }}" alt="{{ venue.name }}">
 
@@ -18,7 +19,22 @@
     <div>
         <form method="POST" action="{% url 'venue_detail' venue_pk=venue.pk %}">
             {% csrf_token %}
-            {{ restroom_form.as_p }}
+            <!-- {{ restroom_form.as_p }} -->
+
+            {% for hidden in restroom_form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+
+            {% for field in restroom_form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label><br>
+                    {{ field|add_class:'form-control' }}
+                    {% for error in field.errors %}
+                        <span class="help-block">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
             <input type="submit" value="Submit">
         </form>
     </div>
@@ -48,7 +64,7 @@
         {% endfor %}
 
     {% else %}
-    
+
         <p>No restroom reviews currently available.</p>
 
     {% endif %}

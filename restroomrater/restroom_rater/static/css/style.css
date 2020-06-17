@@ -100,7 +100,11 @@ input[type="submit"]:active {
 .center {
     margin: auto;
     width: 60%;
-    /* border: 3px solid; */
     padding: 10px;
     text-align: center;
+}
+
+.form-control {
+    border-radius: 5px;
+    width: 25%;
 }

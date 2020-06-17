@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'restroom_rater',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
