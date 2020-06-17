@@ -34,7 +34,7 @@ input[type="submit"]:hover {
 }
 
 
-/* Text */
+/* Venues */
 .venue_images {
     width: 35%;
     height: auto;
@@ -60,6 +60,8 @@ input[type="submit"]:hover {
     line-height: 2px;
 }
 
+
+/* Reviews */
 .review {
     border: 2px solid gray;
     width: 45%;

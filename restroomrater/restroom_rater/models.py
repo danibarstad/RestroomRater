@@ -13,6 +13,7 @@ User._meta.get_field('first_name')._blank = False
 
 class Venue(models.Model):
     name = models.CharField(max_length=200, blank=False)
+    category = models.CharField(max_length=200, blank=False)
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=200, blank=False)
     state = models.CharField(max_length=2, blank=False)    # What about international?
