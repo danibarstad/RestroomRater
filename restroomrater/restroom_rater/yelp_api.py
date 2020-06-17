@@ -26,7 +26,7 @@ def get_name(location):
         response = requests.get(url, params=params, headers=headers).json()
         for venue in response['businesses']:
             venue_name = venue['name']
-            venue_category = venue['categories'][1]['title']
+            venue_category = venue['categories'][0]['title']
             venue_address = venue['location']['address1']
             venue_city = venue['location']['city']
             venue_state = venue['location']['state']

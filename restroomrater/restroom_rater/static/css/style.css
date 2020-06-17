@@ -20,6 +20,10 @@ a:hover {
     background-color: lavender;
 }
 
+a:active {
+    background-color: lightcyan;
+}
+
 
 /* Input */
 input[type="submit"] {
@@ -31,6 +35,10 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: lavender;
+}
+
+input[type="submit"]:active {
+    background-color: lightcyan;
 }
 
 
