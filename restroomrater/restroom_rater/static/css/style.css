@@ -8,11 +8,7 @@
 a {
     color: black;
 }
-a:link {
-    text-decoration: none;
-}
-
-a:visited {
+a:link, a:visited {
     text-decoration: none;
 }
 
@@ -80,6 +76,15 @@ input[type="submit"]:active {
 .review_text {
     font-size: 11pt;
     padding: 1%;
+}
+.review_detail {
+    border: 2px solid gray;
+    padding-left: 1%;
+}
+
+.review_column {
+    font-size: 10pt;
+    color: grey;
 }
 
 

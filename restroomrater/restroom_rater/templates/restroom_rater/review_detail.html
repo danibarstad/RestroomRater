@@ -3,18 +3,18 @@
 
 <div>
     <h3><a href="{% url 'venue_detail' venue_pk=review.venue.pk %}">{{ review.venue.name }}</a></h3>
-
-    <p>Title: {{ review.title}}</p>
-    <p>by <a href="{% url 'user_profile' user_pk=user.pk %}">{{ review.user }}</a></p>
-    <p>Public: {{ review.public }}</p>
-    <p>Type: {{ review.get_rest_type_display }}</p>
-    <p>Changing Table: {{ review.baby }}</p>
-    <p>Sharps Container: {{ review.needle }}</p>
-    <p>Handicap Accessible: {{ review.handicap }}</p>
-    <p>Rating: {{ review.get_rating_display }}</p>
-    <p>Comment: {{ review.comment }}</p>
-    <p>Date Posted: {{ review.posted_date }}</p>
-
+    <div class="review_detail">
+        <h3>{{ review.title}}</h3>
+        <p><span class="review_column">by</span> <a href="{% url 'user_profile' user_pk=user.pk %}">{{ review.user }}</a></p>
+        <p><span class="review_column">Public:</span> {{ review.public }}</p>
+        <p><span class="review_column">Type:</span> {{ review.get_rest_type_display }}</p>
+        <p><span class="review_column">Changing Table:</span> {{ review.baby }}</p>
+        <p><span class="review_column">Sharps Container:</span> {{ review.needle }}</p>
+        <p><span class="review_column">Handicap Accessible:</span> {{ review.handicap }}</p>
+        <p><span class="review_column">Rating:</span> {{ review.get_rating_display }}</p>
+        <p><span class="review_column">Comment:</span> {{ review.comment }}</p>
+        <p><span class="review_column">Reviewed on</span> {{ review.posted_date }}</p>
+    </div>
 </div>
 
 {% endblock %}

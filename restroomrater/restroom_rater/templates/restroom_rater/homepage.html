@@ -2,16 +2,6 @@
 
 {% block content %}
 
-    {% for venue in venues %}
-
-        <div id="venue_{{ venue.pk }}">
-            <p><a href="{% url 'venue_detail' venue_pk=venue.pk %}">{{ venue.name }}</a></p>
-        </div>        
-
-    {% empty %}
-
-        <p>There are no venues</p>
-
-    {% endfor %}
+    <p>Enter a zip code to begin your search!</p>>
 
 {% endblock %}
