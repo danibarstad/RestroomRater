@@ -1,12 +1,27 @@
-/* #venue_image {
-    width: 250;
-    height: 250;
-} */
-
+/* Font */
 * {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+
+/* Link */
+a {
+    color: black;
+}
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: lavender;
+}
+
+
+/* Input */
 input[type="submit"] {
     background-color: white;
     padding: 3px 15px;
@@ -18,20 +33,14 @@ input[type="submit"]:hover {
     background-color: lavender;
 }
 
-#site-header {
-    background: url('../img/bathroom.jpg');
-    background-size: cover;
-    height: 100%;
-}
 
+/* Text */
 .venue_images {
     width: 35%;
     height: auto;
+    float: right;
+    margin-top: 1%;
 }
-
-/* .venue_details {
-    display: inline-block;
-} */
 
 .venue_text {
     margin-left: 10%;
@@ -39,12 +48,17 @@ input[type="submit"]:hover {
     line-height: 2px;
 }
 
-.venue_result {
+.venue_list {
     border: 2px solid gray;
     width: 25%;
     margin-bottom: 1%;
     padding-left: 1%;
 } 
+
+.venue_detail {
+    padding-left: 1%;
+    line-height: 2px;
+}
 
 .review {
     border: 2px solid gray;
@@ -56,4 +70,22 @@ input[type="submit"]:hover {
 .review_text {
     font-size: 11pt;
     padding: 1%;
+}
+
+
+/* Etc */
+#site-header {
+    background: url('../img/bathroom.jpg');
+    background-size: cover;
+    height: 100%;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.center {
+    margin: auto;
+    width: 60%;
+    /* border: 3px solid; */
+    padding: 10px;
+    text-align: center;
 }

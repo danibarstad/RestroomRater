@@ -4,13 +4,15 @@
 
     {% for venue in venues %}
 
-        <div class="venue_result">
-            <h3><a href="{% url 'venue_detail' venue_pk=venue.pk %}">{{ venue.name }}</a></h3>
-            <div class="venue_text">
-                <p>{{ venue.address }}</p>
-                <p>{{ venue.city }}, {{ venue.state }} {{venue.zip_code }}</p>
+        <div style="margin-top: 1%">
+            <div class="venue_list">
+                <h3><a href="{% url 'venue_detail' venue_pk=venue.pk %}">{{ venue.name }}</a></h3>
+                <div class="venue_text">
+                    <p>{{ venue.address }}</p>
+                    <p>{{ venue.city }}, {{ venue.state }} {{venue.zip_code }}</p>
+                </div>
+                <br>
             </div>
-            <br>
         </div>
         
 
