@@ -13,28 +13,28 @@ a:link, a:visited {
 }
 
 a:hover {
-    background-color: lavender;
+    background-color: rgb(204, 216, 228);
 }
 
 a:active {
-    background-color: lightcyan;
+    background-color: rgb(185, 185, 185);
 }
 
 
 /* Input */
 input[type="submit"] {
     background-color: white;
-    padding: 3px 15px;
+    padding: 2px 15px;
     border: 1px solid;
     border-radius: 5px;
 }
 
 input[type="submit"]:hover {
-    background-color: lavender;
+    background-color: rgb(204, 216, 228);
 }
 
 input[type="submit"]:active {
-    background-color: lightcyan;
+    background-color: rgb(185, 185, 185);
 }
 
 
@@ -53,10 +53,11 @@ input[type="submit"]:active {
 }
 
 .venue_list {
-    border: 2px solid gray;
-    width: 25%;
+    border: 3px solid black;
+    width: 35%;
     margin-bottom: 1%;
     padding-left: 1%;
+    background-color: white;
 } 
 
 .venue_detail {
@@ -66,12 +67,12 @@ input[type="submit"]:active {
 
 
 /* Reviews */
-.review {
+/* .review {
     border: 2px solid gray;
     width: 45%;
     margin-bottom: 1%;
     padding-left: 1%;
-}
+} */
 
 .review_text {
     font-size: 11pt;
@@ -84,22 +85,20 @@ input[type="submit"]:active {
 
 .review_column {
     font-size: 10pt;
-    color: grey;
+    color: rgb(112, 112, 112);
+    font-weight: bold;
 }
 
-
-/* Etc */
-#site-header {
-    background: url('../img/bathroom.jpg');
+body {
+    background-image: url('../img/bathroom.jpg');
     background-size: cover;
-    height: 100%;
-    padding-left: 1%;
-    padding-right: 1%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .center {
     margin: auto;
-    width: 60%;
+    width: 75%;
     padding: 10px;
     text-align: center;
 }

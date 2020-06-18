@@ -1,4 +1,5 @@
 {% load static %}
+{% load widget_tweaks %}
 <html>
     <head>
         <title>Restroom Rater</title>
@@ -7,7 +8,7 @@
     
     <body>
 
-        <div id="site-header">
+        <div>
             <h1 style="display: inline">Restroom Rater</h1>
         
             <div style="float: right">
@@ -17,16 +18,22 @@
                     <span id='login_or_sign_up'><a href="{% url 'login' %}?next={{ request.path }}">Login or sign up</a></span>
                 {% endif %}
             </div>
-            
             <div class="center">
                 <form action="{% url 'venue_list' %}">
-                    {{ search_zip_form }}
+                    {% render_field search_zip_form.zip_code.label %}:
+                    {% render_field search_zip_form.zip_code class="form-control" %}
                     <input type='submit' value='SEARCH'>
                 </form>
             </div>
 
+            <!-- <div class="center">
+                <form action="{% url 'venue_list' %}">
+                    {{ search_zip_form }}
+                    <input type='submit' value='SEARCH'>
+                </form>
+            </div> -->
+
         </div>
-        
 
         {% block content %}
         {% endblock %}

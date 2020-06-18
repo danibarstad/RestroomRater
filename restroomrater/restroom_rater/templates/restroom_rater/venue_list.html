@@ -4,7 +4,7 @@
 
     {% for venue in venues %}
 
-        <div style="margin-top: 1%" style="width: auto;">
+        <div style="margin-top: 1%; width: auto;">
             <div class="venue_list">
                 <h3 style="margin-bottom: 0pt"><a href="{% url 'venue_detail' venue_pk=venue.pk %}">{{ venue.name }}</a></h3>
                 <p style="margin-top: 0pt"><i>{{ venue.category }}</i></p>

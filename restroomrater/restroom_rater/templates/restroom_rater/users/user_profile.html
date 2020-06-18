@@ -17,7 +17,7 @@
 <h3 id='username_reviews'><u>Reviews</u></h3>
 {% if reviews %}
     {% for review in reviews %}
-        <div class='review' id='review_{{ review.pk }}'>
+        <div class='venue_list' id='review_{{ review.pk }}'>
             <h4 style="display: inline-block;"><a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a></h4>
             for <a href="{% url 'venue_detail' venue_pk=review.venue.pk %}">{{ review.venue.name }}</a>
             <div class="review_text">

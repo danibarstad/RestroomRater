@@ -1,9 +1,11 @@
 {% extends 'restroom_rater/base.html' %}
 {% block content %}
 
+<img class="venue_images" src="{{ review.venue.image }}" alt="{{ review.venue.name }}">
+
 <div>
     <h3><a href="{% url 'venue_detail' venue_pk=review.venue.pk %}">{{ review.venue.name }}</a></h3>
-    <div class="review_detail">
+    <div class="venue_list" style="width: 50%;">
         <h3>{{ review.title}}</h3>
         <p><span class="review_column">by</span> <a href="{% url 'user_profile' user_pk=user.pk %}">{{ review.user }}</a></p>
         <p><span class="review_column">Public:</span> {{ review.public }}</p>
@@ -12,7 +14,7 @@
         <p><span class="review_column">Sharps Container:</span> {{ review.needle }}</p>
         <p><span class="review_column">Handicap Accessible:</span> {{ review.handicap }}</p>
         <p><span class="review_column">Rating:</span> {{ review.get_rating_display }}</p>
-        <p><span class="review_column">Comment:</span> {{ review.comment }}</p>
+        <p><span class="review_column">Comment:</span> "{{ review.comment }}"</p>
         <p><span class="review_column">Reviewed on</span> {{ review.posted_date }}</p>
     </div>
 </div>

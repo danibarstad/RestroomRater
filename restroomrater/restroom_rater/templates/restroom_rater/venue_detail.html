@@ -53,7 +53,7 @@
                 <p>&emsp;&emsp;{{ review.comment }}</p>
             </div> -->
 
-            <div class="review">
+            <div class="venue_list">
                 <h4 style="display: inline-block;"><a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a></h4> 
                 by <a href="{% url 'user_profile' user_pk=user.pk %}">{{ review.user.username }}</a>
                 <div class="review_text">
