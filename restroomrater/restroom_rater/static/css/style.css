@@ -17,7 +17,7 @@ a:hover {
 }
 
 a:active {
-    background-color: rgb(185, 185, 185);
+    background-color: rgb(235, 232, 102);
 }
 
 
@@ -44,6 +44,7 @@ input[type="submit"]:active {
     height: auto;
     float: right;
     margin-top: 1%;
+    border: 3px solid black;
 }
 
 .venue_text {
@@ -90,7 +91,7 @@ input[type="submit"]:active {
 }
 
 body {
-    background-image: url('../img/bathroom.jpg');
+    background-image: url('../img/bathroom2.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;

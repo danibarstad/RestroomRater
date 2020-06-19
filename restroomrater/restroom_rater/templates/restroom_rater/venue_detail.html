@@ -35,6 +35,26 @@
                 </div>
             {% endfor %}
 
+            <div class="form-group">
+
+                <label for="{{ restroom_form.public.id_for_label }}">{{ restroom_form.public.label }}</label>
+                {{ restroom_form.public }}<br>
+                <label for="{{ restroom_form.rest_type.id_for_label }}">{{ restroom_form.rest_type.label }}</label><br>
+                {{ restroom_form.rest_type|add_class:'form-control' }}<br>
+                <label for="{{ restroom_form.baby.id_for_label }}">{{ restroom_form.baby.label }}</label>
+                {{ restroom_form.baby }}<br>
+                <label for="{{ restroom_form.needle.id_for_label }}">{{ restroom_form.needle.label }}</label>
+                {{ restroom_form.needle }}<br>
+                <label for="{{ restroom_form.handicap.id_for_label }}">{{ restroom_form.handicap.label }}</label>
+                {{ restroom_form.handicap }}<br>
+                <label for="{{ restroom_form.rating.id_for_label }}">{{ restroom_form.rating.label }}</label><br>
+                {{ restroom_form.rating|add_class:'form-control' }}<br>
+                <label for="{{ restroom_form.title.id_for_label }}">{{ restroom_form.title.label }}</label><br>
+                {{ restroom_form.title|add_class:'form-control' }}<br>
+                <label for="{{ restroom_form.comment.id_for_label }}">{{ restroom_form.comment.label }}</label><br>
+                {{ restroom_form.comment|add_class:'form-control' }}<br>
+            </div>
+
             <input type="submit" value="Submit">
         </form>
     </div>
