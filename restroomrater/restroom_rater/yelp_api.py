@@ -20,6 +20,7 @@ def get_name(location):
     params = {
         'location': f'{location}'
     }
+    
     headers = {'Authorization': f'Bearer {YELP_API_KEY}'}
 
     try:

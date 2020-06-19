@@ -1,6 +1,6 @@
-from .forms import SearchZipForm
+from .forms import SearchForm
 
-def search_zip_form(request):
+def search_form(request):
     return {
-        'search_zip_form' : SearchZipForm()
+        'search_form' : SearchForm()
         }

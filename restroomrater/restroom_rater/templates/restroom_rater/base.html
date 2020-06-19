@@ -18,20 +18,25 @@
                     <span id='login_or_sign_up'><a href="{% url 'login' %}?next={{ request.path }}">Login or sign up</a></span>
                 {% endif %}
             </div>
-            <div class="center">
-                <form action="{% url 'venue_list' %}">
-                    {% render_field search_zip_form.zip_code.label %}:
-                    {% render_field search_zip_form.zip_code class="form-control" %}
-                    <input type='submit' value='SEARCH'>
-                </form>
-            </div>
-
             <!-- <div class="center">
                 <form action="{% url 'venue_list' %}">
-                    {{ search_zip_form }}
+                    {% render_field search_form.search_location.label %}:
+                    {% render_field search_form.search_location class="form-control" %}
+
+                    {% render_field search_form.search_name.label %}:   
+                    {% render_field search_form.search_name class="form-control" %}
+
+                    
                     <input type='submit' value='SEARCH'>
                 </form>
             </div> -->
+
+            <div class="center">
+                <form action="{% url 'venue_list' %}">
+                    {{ search_form }}
+                    <input type='submit' value='SEARCH'>
+                </form>
+            </div>
 
         </div>
 

@@ -6,15 +6,23 @@ from django.shortcuts import get_object_or_404, redirect, render
 
 
 def venue_list(request):
-    search_zip = request.GET.get('zip_code')
+    search_location = request.GET.get('zip_code')
 
-    if not Venue.objects.filter(zip_code=search_zip).exists():
-        venues = yelp_api.get_name(search_zip)
-        venues = Venue.objects.filter(zip_code=search_zip).order_by('name')
+    if not Venue.objects.filter(zip_code=search_location).exists():
+        venues = yelp_api.get_name(search_location)
+        venues = Venue.objects.filter(zip_code=search_location).order_by('name')
+    elif not Venue.objects.filter(city=search_location).exists():
+        venues = yelp_api.get_name(search_location)
+        venues = Venue.objects.filter(zip_code=search_location).order_by('name')
+    elif not Venue.objects.filter(state=search_location).exists():
+        venues = yelp_api.get_name(search_location)
+        venues = Venue.objects.filter(zip_code=search_location).order_by('name')
     else:
-        venues = Venue.objects.filter(zip_code=search_zip).order_by('name')
+        venues = Venue.objects.filter(zip_code=search_location).order_by('name')
 
-    return render(request, 'restroom_rater/venue_list.html', { 'venues': venues, 'search_zip': search_zip})
+    return render(request, 'restroom_rater/venue_list.html', { 'venues': venues, 'search_zip': search_location })
+
+
 
 
 def venue_detail(request, venue_pk):
