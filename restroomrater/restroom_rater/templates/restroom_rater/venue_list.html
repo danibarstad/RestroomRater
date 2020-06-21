@@ -1,6 +1,11 @@
 {% extends 'restroom_rater/base.html' %}
-
 {% block content %}
+
+    <span id='breadcrumbs'>
+        <a href="{% url 'homepage' %}">Home</a>
+        / 
+        <a href="{% url 'venue_list' %}">Venue List</a>
+    </span>
 
     {% for venue in venues %}
 
@@ -15,7 +20,6 @@
                 <br>
             </div>
         </div>
-        
 
     {% empty %}
 
