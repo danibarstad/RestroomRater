@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 
 class SearchForm(forms.Form):
-    zip_code = forms.CharField(required=True, label='Zip Code')
+    zip_code = forms.CharField(required=True, label='Zip Code', max_length=5)
 
 
 class RestroomForm(forms.ModelForm):

@@ -11,16 +11,10 @@ def venue_list(request):
     if not Venue.objects.filter(zip_code=search_location).exists():
         venues = yelp_api.get_name(search_location)
         venues = Venue.objects.filter(zip_code=search_location).order_by('name')
-    elif not Venue.objects.filter(city=search_location).exists():
-        venues = yelp_api.get_name(search_location)
-        venues = Venue.objects.filter(zip_code=search_location).order_by('name')
-    elif not Venue.objects.filter(state=search_location).exists():
-        venues = yelp_api.get_name(search_location)
-        venues = Venue.objects.filter(zip_code=search_location).order_by('name')
     else:
         venues = Venue.objects.filter(zip_code=search_location).order_by('name')
 
-    return render(request, 'restroom_rater/venue_list.html', { 'venues': venues, 'search_zip': search_location })
+    return render(request, 'restroom_rater/venue_list.html', { 'venues': venues, 'search_location': search_location })
 
 
 
