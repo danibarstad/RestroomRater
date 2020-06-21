@@ -19,10 +19,10 @@
             <div class="venue_text">
                 <p>{{ venue.address }}</p>
                 <p>{{ venue.city }}, {{ venue.state }} {{ venue.zip_code }}</p>
-                
             </div>
             <br>
         </div>
+    </div>
 
     <div>
         <form method="POST" action="{% url 'venue_detail' venue_pk=venue.pk %}">
@@ -47,34 +47,36 @@
         </form>
     </div>
 
-    <h3>Reviews</h3>
+    <div>
+        <h3>Reviews</h3>
 
-    {% if reviews %}
-        {% for review in reviews %}
+        {% if reviews %}
+            {% for review in reviews %}
 
-            <!-- <div style="display: inline-block" id='review_{{ review.pk }}'>
-                <p style="display: inline-block">{{ review.rating }}/5</p>
-            </div>
-
-            <div style="display: inline-block" class='review' id='review_{{ review.pk }}'>
-                <h4>&emsp;<a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a> by <a href="{% url 'user_profile' user_pk=user.pk %}">{{ review.user.username }}</a></h4>
-                <p>&emsp;&emsp;{{ review.comment }}</p>
-            </div> -->
-
-            <div class="venue_list">
-                <h4 style="display: inline-block;"><a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a></h4> 
-                by <a href="{% url 'user_profile' user_pk=user.pk %}">{{ review.user.username }}</a>
-                <div class="review_text">
-                    {{ review.rating }}\5&emsp;<i>{{ review.comment }}</i>
+                <!-- <div style="display: inline-block" id='review_{{ review.pk }}'>
+                    <p style="display: inline-block">{{ review.rating }}/5</p>
                 </div>
-            </div>
 
-        {% endfor %}
+                <div style="display: inline-block" class='review' id='review_{{ review.pk }}'>
+                    <h4>&emsp;<a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a> by <a href="{% url 'user_profile' user_pk=user.pk %}">{{ review.user.username }}</a></h4>
+                    <p>&emsp;&emsp;{{ review.comment }}</p>
+                </div> -->
 
-    {% else %}
+                <div class="venue_list">
+                    <h4 style="display: inline-block;"><a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a></h4> 
+                    by <a href="{% url 'user_profile' user_pk=user.pk %}">{{ review.user.username }}</a>
+                    <div class="review_text">
+                        {{ review.rating }}\5&emsp;<i>{{ review.comment }}</i>
+                    </div>
+                </div>
 
-        <p>No restroom reviews currently available.</p>
+            {% endfor %}
 
-    {% endif %}
+        {% else %}
+
+            <p>No restroom reviews currently available.</p>
+
+        {% endif %}
+    </div>
 
 {% endblock %}

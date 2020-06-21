@@ -17,8 +17,6 @@ def venue_list(request):
     return render(request, 'restroom_rater/venue_list.html', { 'venues': venues, 'search_location': search_location })
 
 
-
-
 def venue_detail(request, venue_pk):
     venue = get_object_or_404(Venue, pk=venue_pk)
     reviews = RestroomReview.objects.filter(venue=venue_pk)
