@@ -4,7 +4,7 @@
     <span id='breadcrumbs'>
         <a href="{% url 'homepage' %}">Home</a>
         / 
-        <a href="{% url 'venue_list' %}">Venue List</a>
+        <a href="{% url 'venue_list' %}?zip_code={{ search_location }}">Venue List</a>
     </span>
 
     {% for venue in venues %}
@@ -15,7 +15,7 @@
                 <p style="margin-top: 0pt"><i>{{ venue.category }}</i></p>
                 <div class="venue_text">
                     <p>{{ venue.address }}</p>
-                    <p>{{ venue.city }}, {{ venue.state }} {{venue.zip_code }}</p>
+                    <p>{{ venue.city }}, {{ venue.state }} {{ venue.zip_code }}</p>
                 </div>
                 <br>
             </div>

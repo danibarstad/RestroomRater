@@ -11,3 +11,6 @@ def homepage(request):
 def review_detail(request, review_pk):
     review = get_object_or_404(RestroomReview, pk=review_pk)
     return render(request, 'restroom_rater/review_detail.html', {'review': review})
+
+def breadcrumbs(request):
+    return render(request, 'restroom_rater/breadcrumbs.html')
