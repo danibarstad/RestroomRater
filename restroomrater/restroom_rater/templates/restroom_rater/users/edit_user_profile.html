@@ -1,18 +1,22 @@
 {% extends 'restroom_rater/base.html' %}
 {% block content %}
 
-<h2>Edit Profile</h2>
+    <span id='breadcrumbs'>
+        <p><a href="{% url 'homepage' %}">Home</p>
+    </span>
 
-{% if message %}
-    <p>{{ message }}</p>
-{% endif %}
+    <h2>Edit Profile</h2>
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table if='EditProfileForm'>
-            {{ form.as_table }}
-        </table>
-        <button type='submit'>Save Changes</button>
-    </form>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+        <form method="POST" action="">
+            {% csrf_token %}
+            <table if='EditProfileForm'>
+                {{ form.as_table }}
+            </table>
+            <button type='submit'>Save Changes</button>
+        </form>
 
 {% endblock %}

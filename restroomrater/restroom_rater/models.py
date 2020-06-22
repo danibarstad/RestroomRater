@@ -21,7 +21,7 @@ class Venue(models.Model):
     image = models.CharField(max_length=200)
 
     def __str__(self):
-        return f'Venue name: {self.name} in {self.city}, {self.state} {self.zip_code}'
+        return f'{self.name} // {self.city}, {self.state} {self.zip_code}'
 
 
 class RestroomReview(models.Model):
