@@ -1,7 +1,7 @@
 from .forms import RestroomForm
 from django.utils import timezone
 from .models import Venue, RestroomReview
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 
 
 def homepage(request):
@@ -14,3 +14,6 @@ def review_detail(request, review_pk):
 
 def breadcrumbs(request):
     return render(request, 'restroom_rater/breadcrumbs.html')
+
+def dello(request):
+    return HttpResponse('This app is deployed on App Engine!!')

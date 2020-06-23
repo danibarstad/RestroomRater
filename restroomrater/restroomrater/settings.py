@@ -23,9 +23,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'u_jsf5@$ilt)x-_wihpean#x93wg%uy260=3q(r%t0*@y1*3y2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.getenv('GAE_INSTANCE'):
+    DEBUG = False
+else:
+    DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['*']
+if os.getenv('GAE_INSTANCE'):
+    ALLOWED_HOSTS = ['restroom-rater-281118.uc.r.appspot.com']
+else:
+    ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -76,12 +83,30 @@ WSGI_APPLICATION = 'restroomrater.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+''' FOR LOCAL '''
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+''' FOR DEPLOYED '''
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'restrooms',
+        'USER': 'bathroom-user',
+        'PASSWORD': os.getenv('BATHROOM_PW'),
+        'HOST': '/cloudsql/restroom-rater-281118:us-central1:restroom-rater-db',
+        'PORT': '5432'
     }
 }
+
+# if not running at GAW, then replace the host with your local
+# computer to connect to the database via cloud_sql_proxy
+if not os.getenv('GAE_INSTANCE'):
+    DATABASES['default']['HOST'] = '127.0.0.1'
 
 
 # Password validation
@@ -120,8 +145,24 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'www', 'static')
+
+# Where in the file system to save user-uploaded files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+if os.getenv('GAE_INSTANCE'):
+
+    DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+    GS_STATIC_FILE_BUCKET = 'restroom-rater-281118.appspot.com'
+    STATIC_URL = f'https://storage.cloud.google.com/{GS_STATIC_FILE_BUCKET}/static/'
+
+else:
+    # for the site's static files
+    STATIC_URL = '/static/'
+    
+    # Media URL, for user-created media - becomes part of URL when images are displayed
+    MEDIA_URL = '/media/'
+
 
 LOGIN_REDIRECT_URL = 'my_user_profile'
 LOGOUT_REDIRECT_URL = 'homepage'
