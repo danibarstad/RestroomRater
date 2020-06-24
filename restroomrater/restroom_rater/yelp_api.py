@@ -4,7 +4,8 @@ from .models import Venue
 from django.db import IntegrityError
 
 
-YELP_API_KEY = os.environ.get('YELP_API_KEY')
+# YELP_API_KEY = os.environ.get('YELP_API_KEY')
+YELP_API_KEY = os.getenv('YELP_API_KEY')
 
 
 def get_location():

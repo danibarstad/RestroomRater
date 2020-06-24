@@ -5,7 +5,8 @@ from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 
 
 def homepage(request):
-    return render(request, 'restroom_rater/homepage.html')
+    reviews = RestroomReview.objects.all()
+    return render(request, 'restroom_rater/homepage.html', {'reviews': reviews})
 
 
 def review_detail(request, review_pk):

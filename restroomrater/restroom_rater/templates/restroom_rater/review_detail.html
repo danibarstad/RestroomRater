@@ -17,7 +17,7 @@
         <h3><a href="{% url 'venue_detail' venue_pk=review.venue.pk %}">{{ review.venue.name }}</a></h3>
         <div class="venue_list" style="width: 50%;">
             <h3>{{ review.title }}</h3>
-            <p><span class="review_column">by</span> <a href="{% url 'user_profile' user_pk=user.pk %}">{{ review.user }}</a></p>
+            <p><span class="review_column">by</span> <a href="{% url 'user_profile' user_pk=review.user.pk %}">{{ review.user }}</a></p>
             <p><span class="review_column">Public:</span> {{ review.public }}</p>
             <p><span class="review_column">Type:</span> {{ review.get_rest_type_display }}</p>
             <p><span class="review_column">Changing Table:</span> {{ review.baby }}</p>

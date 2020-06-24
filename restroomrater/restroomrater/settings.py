@@ -29,6 +29,7 @@ if os.getenv('GAE_INSTANCE'):
     DEBUG = False
 else:
     DEBUG = True
+# DEBUG = True
 
 # ALLOWED_HOSTS = ['*']
 if os.getenv('GAE_INSTANCE'):
