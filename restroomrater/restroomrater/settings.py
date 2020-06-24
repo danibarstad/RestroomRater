@@ -21,8 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'u_jsf5@$ilt)x-_wihpean#x93wg%uy260=3q(r%t0*@y1*3y2'
-SECRET_KEY = ''.join([random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)') for i in range(50)])
+SECRET_KEY = 'u_jsf5@$ilt)x-_wihpean#x93wg%uy260=3q(r%t0*@y1*3y2'
+# SECRET_KEY = ''.join([random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)') for i in range(50)])
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.getenv('GAE_INSTANCE'):
@@ -105,7 +105,7 @@ DATABASES = {
     }
 }
 
-# if not running at GAW, then replace the host with your local
+# if not running at GAE, then replace the host with your local
 # computer to connect to the database via cloud_sql_proxy
 if not os.getenv('GAE_INSTANCE'):
     DATABASES['default']['HOST'] = '127.0.0.1'
