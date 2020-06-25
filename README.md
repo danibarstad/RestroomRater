@@ -11,3 +11,8 @@ pip install requirements.txt
 ```
 python manage.py runserver
 ```
+
+in browser
+```
+127.0.0.1:8000/
+```
