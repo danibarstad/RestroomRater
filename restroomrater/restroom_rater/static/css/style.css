@@ -91,8 +91,7 @@ input[type="submit"]:active {
 }
 
 body {
-    /* background-image: url('../img/bathroom2.jpg'); */
-    background-image: url('..\www\static\img\bathroom2.jpg');
+    background-image: url('../img/bathroom2.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
