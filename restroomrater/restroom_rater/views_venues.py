@@ -2,8 +2,8 @@ from . import yelp_api
 from .forms import RestroomForm
 from django.utils import timezone
 from .models import RestroomReview, Venue
-from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, redirect, render
 
 
 def venue_list(request):
@@ -16,6 +16,7 @@ def venue_list(request):
         venues = Venue.objects.filter(zip_code=search_location).order_by('name')
 
     return render(request, 'restroom_rater/venue_list.html', { 'venues': venues, 'search_location': search_location })
+    
 
 @login_required
 def venue_detail(request, venue_pk):

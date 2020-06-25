@@ -6,11 +6,12 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 
-
+# form to search zip code
 class SearchForm(forms.Form):
     zip_code = forms.CharField(required=True, label='Zip Code', max_length=5)
 
 
+# form to review restroom
 class RestroomForm(forms.ModelForm):
     class Meta:
         model = RestroomReview
@@ -20,6 +21,7 @@ class RestroomForm(forms.ModelForm):
             )
 
 
+# form for user to register
 class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = User
@@ -64,6 +66,7 @@ class UserRegistrationForm(UserCreationForm):
             return user
 
 
+# form for user to edit profile
 class EditProfileForm(UserChangeForm):
     class Meta:
         model = User
