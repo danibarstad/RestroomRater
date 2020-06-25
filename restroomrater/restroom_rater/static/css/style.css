@@ -68,13 +68,6 @@ input[type="submit"]:active {
 
 
 /* Reviews */
-/* .review {
-    border: 2px solid gray;
-    width: 45%;
-    margin-bottom: 1%;
-    padding-left: 1%;
-} */
-
 .review_text {
     font-size: 11pt;
     padding: 1%;
@@ -90,6 +83,8 @@ input[type="submit"]:active {
     font-weight: bold;
 }
 
+
+/* Etc */
 body {
     background-image: url('../img/bathroom2.jpg');
     background-size: cover;

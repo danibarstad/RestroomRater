@@ -1,20 +1,25 @@
 {% extends 'restroom_rater/base.html' %}
 {% block content %}
 
+    <!-- breadcrumbs -->
     <span id='breadcrumbs'>
         <p><a href="{% url 'homepage' %}">Home</a></p>
     </span>
 
+    <!-- description -->
     <p style="text-align: center;"><b>Enter a city, state, or zip code to begin your search!</b></p>
 
+    <!-- if there are an reviews, list them all here -->
     {% for review in reviews %}
-    <div class="venue_list">
-        <h4 style="display: inline-block;"><a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a></h4> 
-        by <a href="{% url 'user_profile' user_pk=review.user.pk %}">{{ review.user.username }}</a> for <a href="{% url 'venue_detail' venue_pk=review.venue.pk %}">{{ review.venue.name }}</a>
-        <div class="review_text">
-            {{ review.rating }}\5&emsp;<i>{{ review.comment }}</i>
+
+        <div class="venue_list">
+            <h4 style="display: inline-block;"><a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a></h4> 
+            by <a href="{% url 'user_profile' user_pk=review.user.pk %}">{{ review.user.username }}</a> for <a href="{% url 'venue_detail' venue_pk=review.venue.pk %}">{{ review.venue.name }}</a>
+            <div class="review_text">
+                {{ review.rating }}\5&emsp;<i>{{ review.comment }}</i>
+            </div>
         </div>
-    </div>
+        
     {% endfor %}
 
 {% endblock %}

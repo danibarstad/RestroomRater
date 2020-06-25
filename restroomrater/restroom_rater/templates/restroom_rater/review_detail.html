@@ -1,6 +1,7 @@
 {% extends 'restroom_rater/base.html' %}
 {% block content %}
 
+    <!-- breadcrumbs -->
     <span id='breadcrumbs'>
         <a href="{% url 'homepage' %}">Home</a>
         / 
@@ -11,8 +12,10 @@
         <a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a>
     </span>
 
+    <!-- venue image -->
     <img class="venue_images" src="{{ review.venue.image }}" alt="{{ review.venue.name }}">
 
+    <!-- review details -->
     <div>
         <h3><a href="{% url 'venue_detail' venue_pk=review.venue.pk %}">{{ review.venue.name }}</a></h3>
         <div class="venue_list" style="width: 50%;">

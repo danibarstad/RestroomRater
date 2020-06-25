@@ -3,6 +3,7 @@
 
 <h2>Login</h2>
 
+    <!-- Form for user to login -->
     <form method="POST" action="">
         {% csrf_token %}
         <table id='login_form'>
@@ -11,6 +12,7 @@
         <button type='submit'>Login</button>
     </form>
 
+    <!-- If not a user, create an account -->
     <p><a href="{% url 'register' %}">Or create an account</a></p>
 
 {% endblock %}

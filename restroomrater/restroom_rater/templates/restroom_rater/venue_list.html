@@ -1,12 +1,14 @@
 {% extends 'restroom_rater/base.html' %}
 {% block content %}
 
+    <!-- breadcrumbs -->
     <span id='breadcrumbs'>
         <a href="{% url 'homepage' %}">Home</a>
         / 
         <a href="{% url 'venue_list' %}?zip_code={{ search_location }}">Venue List</a>
     </span>
 
+    <!-- if any venues are returned, list them here -->
     {% for venue in venues %}
 
         <div style="margin-top: 1%; width: auto;">

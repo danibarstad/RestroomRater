@@ -2,6 +2,7 @@
 {% block content %}
 {% load widget_tweaks %}
 
+    <!-- breadcrumbs -->
     <span id='breadcrumbs'>
         <a href="{% url 'homepage' %}">Home</a>
         / 
@@ -10,8 +11,10 @@
         <a href="{% url 'venue_detail' venue_pk=venue.pk %}">{{ venue.name }}</a>
     </span>
 
+    <!-- venue image -->
     <img class="venue_images" src="{{ venue.image }}" alt="{{ venue.name }}">
 
+    <!-- venue details -->
     <div style="margin-top: 1%">
         <div class="venue_list">
             <h3 style="margin-bottom: 0pt">{{ venue.name }}</h3>
@@ -24,6 +27,7 @@
         </div>
     </div>
 
+    <!-- form to review restroom -->
     <div>
         <form method="POST" action="{% url 'venue_detail' venue_pk=venue.pk %}">
             {% csrf_token %}
@@ -42,25 +46,16 @@
                     {% endfor %}
                 </div>
             {% endfor %}
-
             <input type="submit" value="Submit">
         </form>
     </div>
 
+    <!-- if there are any reviews, list them here -->
     <div>
         <h3>Reviews</h3>
 
         {% if reviews %}
             {% for review in reviews %}
-
-                <!-- <div style="display: inline-block" id='review_{{ review.pk }}'>
-                    <p style="display: inline-block">{{ review.rating }}/5</p>
-                </div>
-
-                <div style="display: inline-block" class='review' id='review_{{ review.pk }}'>
-                    <h4>&emsp;<a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a> by <a href="{% url 'user_profile' user_pk=user.pk %}">{{ review.user.username }}</a></h4>
-                    <p>&emsp;&emsp;{{ review.comment }}</p>
-                </div> -->
 
                 <div class="venue_list">
                     <h4 style="display: inline-block;"><a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a></h4> 
@@ -71,11 +66,8 @@
                 </div>
 
             {% endfor %}
-
         {% else %}
-
             <p>No restroom reviews currently available.</p>
-
         {% endif %}
     </div>
 
