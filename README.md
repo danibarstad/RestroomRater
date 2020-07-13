@@ -5,6 +5,8 @@ Get Yelp API key from [Yelp Fusion](https://www.yelp.com/fusion) and set ```YELP
 ### Installation
 ```
 pip install requirements.txt
+python manage.py makemigrations
+python manage.py migrate
 ```
 
 ### Run
