@@ -1,1 +1,1 @@
-web: gunicorn restroomrater.restroomrater.wsgi.application
+web: gunicorn restroomrater.restroomrater.wsgi
