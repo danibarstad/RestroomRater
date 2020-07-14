@@ -30,8 +30,7 @@ if os.getenv('GAE_INSTANCE'):
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['restroomrater.herokuapp.com', '127.0.0.1']
-# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']
 # if os.getenv('GAE_INSTANCE'):
 #     ALLOWED_HOSTS = ['restroom-rater-281118.uc.r.appspot.com']
 # else:
@@ -59,7 +58,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'restroomrater.urls'
