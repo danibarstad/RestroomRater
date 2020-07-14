@@ -1,1 +1,1 @@
-web: gunicorn restroomrater.restroomrater.wsgi --log-file -
+web: gunicorn restroomrater.wsgi --log-file -
