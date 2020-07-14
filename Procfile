@@ -1,1 +1,1 @@
-web: gunicorn restroomrater.wsgi --log-file -
+web: gunicorn restroomrater.wsgi:application --host 0.0.0.0 --port $PORT --workers $WEB_CONCURRENCY
