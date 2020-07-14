@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import random
-import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,11 +29,11 @@ if os.getenv('GAE_INSTANCE'):
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-# if os.getenv('GAE_INSTANCE'):
-#     ALLOWED_HOSTS = ['restroom-rater-281118.uc.r.appspot.com']
-# else:
-#     ALLOWED_HOSTS = ['127.0.0.1']
+# ALLOWED_HOSTS = ['*']
+if os.getenv('GAE_INSTANCE'):
+    ALLOWED_HOSTS = ['restroom-rater-281118.uc.r.appspot.com']
+else:
+    ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -168,6 +167,3 @@ else:
 
 LOGIN_REDIRECT_URL = 'my_user_profile'
 LOGOUT_REDIRECT_URL = 'homepage'
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
