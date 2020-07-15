@@ -30,11 +30,12 @@ if os.getenv('GAE_INSTANCE'):
 else:
     DEBUG = True
 
+ALLOWED_HOSTS = ['https://restroomrater.herokuapp.com/', '127.0.0.1']
 # ALLOWED_HOSTS = ['*']
-if os.getenv('GAE_INSTANCE'):
-    ALLOWED_HOSTS = ['restroom-rater-281118.uc.r.appspot.com']
-else:
-    ALLOWED_HOSTS = ['127.0.0.1']
+# if os.getenv('GAE_INSTANCE'):
+#     ALLOWED_HOSTS = ['restroom-rater-281118.uc.r.appspot.com']
+# else:
+#     ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
