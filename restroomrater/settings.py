@@ -110,8 +110,8 @@ WSGI_APPLICATION = 'restroomrater.wsgi.application'
 
 # if not running at GAE, then replace the host with your local
 # computer to connect to the database via cloud_sql_proxy
-if not os.getenv('GAE_INSTANCE'):
-    DATABASES['default']['HOST'] = '127.0.0.1'
+# if not os.getenv('GAE_INSTANCE'):
+#     DATABASES['default']['HOST'] = '127.0.0.1'
 
 
 # Password validation
