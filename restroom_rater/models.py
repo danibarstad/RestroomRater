@@ -1,14 +1,6 @@
 import datetime
 from django.db import models
-from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
-
-User._meta.get_field('email')._unique = True
-User._meta.get_field('username')._unique = True
-
-User._meta.get_field('email')._blank = False
-User._meta.get_field('last_name')._blank = False
-User._meta.get_field('first_name')._blank = False
 
 
 class Venue(models.Model):
@@ -43,7 +35,7 @@ class RestroomReview(models.Model):
         (5, 'Excellent')
     ]
     venue = models.ForeignKey(Venue, blank=False, on_delete=models.CASCADE)
-    user = models.ForeignKey('auth.User', blank=False, on_delete=models.CASCADE)
+    user = models.CharField(max_length=200, blank=False)
     public = models.BooleanField(blank=False)
     rest_type = models.CharField(
         max_length=1, 

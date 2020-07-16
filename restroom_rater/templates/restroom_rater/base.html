@@ -11,15 +11,6 @@
         <div>
             
             <h1 style="display: inline">Restroom Rater</h1>
-        
-            <!-- greet user if logged in, otherwise link to login/sign up -->
-            <div style="float: right">
-                {% if request.user.is_authenticated %}
-                    <span id='welcome_user_msg'>Hello, <a href="{% url 'user_profile' user_pk=request.user.pk %}">{{ request.user.username }}</a> | <a href="{% url 'logout' %}">Logout</a></span>
-                {% else %}
-                    <span id='login_or_sign_up'><a href="{% url 'login' %}?next={{ request.path }}">Login or sign up</a></span>
-                {% endif %}
-            </div>
 
             <!-- form to enter zip code -->
             <div class="center">
