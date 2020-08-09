@@ -89,29 +89,15 @@ WSGI_APPLICATION = 'restroomrater.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 ''' FOR LOCAL '''
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
-''' FOR DEPLOYED '''
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'restrooms',
-#         'USER': 'bathroom-user',
-#         'PASSWORD': os.getenv('BATHROOM_PW'),
-#         'HOST': '/cloudsql/restroom-rater-281118:us-central1:restroom-rater-db',
-#         'PORT': '5432'
-#     }
-# }
-
-# if not running at GAE, then replace the host with your local
-# computer to connect to the database via cloud_sql_proxy
-# if not os.getenv('GAE_INSTANCE'):
-#     DATABASES['default']['HOST'] = '127.0.0.1'
+''' FOR HEROKU '''
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Password validation
@@ -174,5 +160,3 @@ LOGOUT_REDIRECT_URL = 'homepage'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
-
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
