@@ -12,6 +12,10 @@ class SearchForm(forms.Form):
 
 # form to review restroom
 class RestroomForm(forms.ModelForm):
+    user = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
+    title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Title'}))
+    comment = forms.SlugField(widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Leave your review here'}))
+
     class Meta:
         model = RestroomReview
         fields = (
