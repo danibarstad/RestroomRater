@@ -2,34 +2,54 @@
 {% load widget_tweaks %}
 <html>
     <head>
-        <title>Restroom Rater</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+        <title>Restroom Rater</title>
+        
     </head>
     
     <body>
 
-        <div>
-            
-            <h1 style="display: inline">Restroom Rater</h1>
-
-            <!-- form to enter zip code -->
-            <div class="center">
-                <form action="{% url 'venue_list' %}">
-                    {% render_field search_form.zip_code.label %}:
-                    {% render_field search_form.zip_code class="form-control" %}                    
-                    <input type='submit' value='SEARCH'>
-                </form>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="text-center">RESTROOM RATER</h1>
+                </div>
             </div>
 
+            <!-- form to enter zip code -->
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <form action="{% url 'venue_list' %}">
+                            {% render_field search_form.zip_code.label %}:<br>
+                            {% render_field search_form.zip_code class="form-control" style="display: inline;" placeholder="12345" %}
+                            <input type='submit' value='SEARCH'>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            {% block content %}
+            {% endblock %}
         </div>
 
-        {% block content %}
-        {% endblock %}
-
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     </body>
 
     <footer>
-        created by <a target="_blank" href="https://danibarstad.com">danibarstad</a> 
-        | <a target="_blank" href="https://github.com/danibarstad/RestroomRater">GitHub</a>
+        <div class="container">
+            <hr class="mt-0 mb-4">
+            <div class="venue_list" style="margin: auto; text-align: center;">
+                created by <a target="_blank" href="https://danibarstad.com">danibarstad</a>
+                | <a target="_blank" href="https://github.com/danibarstad/RestroomRater">GitHub</a>
+            </div>
+        </div>
     </footer>
 </html>

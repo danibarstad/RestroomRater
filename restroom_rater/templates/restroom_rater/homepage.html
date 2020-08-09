@@ -2,24 +2,28 @@
 {% block content %}
 
     <!-- breadcrumbs -->
-    <span id='breadcrumbs'>
-        <p><a href="{% url 'homepage' %}">Home</a></p>
-    </span>
-
-    <!-- description -->
-    <p style="text-align: center;"><b>Enter a city, state, or zip code to begin your search!</b></p>
-
-    <!-- if there are an reviews, list them all here -->
-    {% for review in reviews %}
-
-        <div class="venue_list">
-            <h4 style="display: inline-block;"><a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a></h4> 
-            by {{ review.user }} for <a href="{% url 'venue_detail' venue_pk=review.venue.pk %}">{{ review.venue.name }}</a>
-            <div class="review_text">
-                {{ review.rating }}\5&emsp;<i>{{ review.comment }}</i>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <span id='breadcrumbs'>
+                    <p><a href="{% url 'homepage' %}">Home</a></p>
+                </span>
             </div>
         </div>
-        
-    {% endfor %}
+    </div>
+    <hr class="mt-0 mb-4">
+
+    
+    <div class="container">
+        {% for review in reviews %}
+            <div class="venue_list">
+                <h4><a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a></h4> 
+                <p>by {{ review.user }} for <a href="{% url 'venue_detail' venue_pk=review.venue.pk %}">{{ review.venue.name }}</a></p>
+                <div class="review_text">
+                    <p>{{ review.rating }}\5&emsp;<i>{{ review.comment }}</i></p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 
 {% endblock %}

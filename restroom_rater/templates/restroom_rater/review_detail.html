@@ -2,33 +2,43 @@
 {% block content %}
 
     <!-- breadcrumbs -->
-    <span id='breadcrumbs'>
-        <a href="{% url 'homepage' %}">Home</a>
-        / 
-        <a href="{% url 'venue_list' %}?zip_code={{ review.venue.zip_code }}">Venue List</a>
-        /
-        <a href="{% url 'venue_detail' venue_pk=review.venue.pk %}">{{ review.venue.name }}</a>
-        /
-        <a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a>
-    </span>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <span id='breadcrumbs'>
+                        <a href="{% url 'homepage' %}">Home</a>
+                        / 
+                        <a href="{% url 'venue_list' %}?zip_code={{ review.venue.zip_code }}">Venue List</a>
+                        /
+                        <a href="{% url 'venue_detail' venue_pk=review.venue.pk %}">{{ review.venue.name }}</a>
+                        /
+                        <a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a>
+                    </span>
+                </div>
+            </div>
+        </div>
 
     <!-- venue image -->
-    <img class="venue_images" src="{{ review.venue.image }}" alt="{{ review.venue.name }}">
+    <!-- <img class="venue_images" src="{{ review.venue.image }}" alt="{{ review.venue.name }}"> -->
 
     <!-- review details -->
-    <div>
-        <h3><a href="{% url 'venue_detail' venue_pk=review.venue.pk %}">{{ review.venue.name }}</a></h3>
-        <div class="venue_list" style="width: 50%;">
-            <h3>{{ review.title }}</h3>
-            <p><span class="review_column">by</span> {{ review.user }}</p>
-            <p><span class="review_column">Public:</span> {{ review.public }}</p>
-            <p><span class="review_column">Type:</span> {{ review.get_rest_type_display }}</p>
-            <p><span class="review_column">Changing Table:</span> {{ review.baby }}</p>
-            <p><span class="review_column">Sharps Container:</span> {{ review.needle }}</p>
-            <p><span class="review_column">Handicap Accessible:</span> {{ review.handicap }}</p>
-            <p><span class="review_column">Rating:</span> {{ review.get_rating_display }}</p>
-            <p><span class="review_column">Comment:</span> "{{ review.comment }}"</p>
-            <p><span class="review_column">Reviewed on</span> {{ review.posted_date }}</p>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3><a href="{% url 'venue_detail' venue_pk=review.venue.pk %}">{{ review.venue.name }}</a></h3>
+                <div class="venue_list">
+                    <h3 style="text-align: center;">{{ review.title }}</h3>
+                    <p style="text-align: center;"><span class="review_column">by</span> {{ review.user }}</p>
+                    <p><span class="review_column">Public:</span> {{ review.public }}</p>
+                    <p><span class="review_column">Type:</span> {{ review.get_rest_type_display }}</p>
+                    <p><span class="review_column">Changing Table:</span> {{ review.baby }}</p>
+                    <p><span class="review_column">Sharps Container:</span> {{ review.needle }}</p>
+                    <p><span class="review_column">Handicap Accessible:</span> {{ review.handicap }}</p>
+                    <p><span class="review_column">Rating:</span> {{ review.get_rating_display }}</p>
+                    <p><span class="review_column">Comment:</span><br>"<em>{{ review.comment }}</em>"</p>
+                    <p><span class="review_column">Reviewed on</span> {{ review.posted_date }}</p>
+                </div>
+            </div>
         </div>
     </div>
 
