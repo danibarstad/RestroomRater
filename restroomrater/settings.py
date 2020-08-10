@@ -30,7 +30,8 @@ SECRET_KEY = ''.join([random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyz01
 #     DEBUG = False
 # else:
 #     DEBUG = True
-DEBUG = False
+# DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['https://restroomrater.herokuapp.com/', '127.0.0.1']
 # ALLOWED_HOSTS = ['*']
