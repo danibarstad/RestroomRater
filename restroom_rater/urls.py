@@ -19,5 +19,5 @@ urlpatterns = [
     path('breadcrumbs/', views.breadcrumbs, name='breadcrumbs'),
 
     # Favicon
-    path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('img/favicon.ico')))
+    # path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('img/favicon.ico')))
 ]
