@@ -35,7 +35,7 @@ class RestroomReview(models.Model):
         (5, 'Excellent')
     ]
     venue = models.ForeignKey(Venue, blank=False, on_delete=models.CASCADE)
-    user = models.CharField(max_length=200, blank=False)
+    user = models.CharField(max_length=20, blank=False)
     public = models.BooleanField(blank=False)
     rest_type = models.CharField(
         max_length=1, 
@@ -46,7 +46,7 @@ class RestroomReview(models.Model):
     needle = models.BooleanField('Sharps Container')
     handicap = models.BooleanField('Handicap Accessible')
     rating = models.IntegerField(choices=RATING_CHOICES, default=1)
-    title = models.CharField(max_length=200, blank=False)
+    title = models.CharField(max_length=100, blank=False)
     comment = models.TextField(max_length=1000, blank=False)
     posted_date = models.DateTimeField(blank=False)
 
