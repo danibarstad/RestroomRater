@@ -15,6 +15,7 @@
 
     
     <div class="container">
+        <h4>Reviews</h4>
         {% for review in reviews %}
             <div class="venue_list">
                 <h4><a href="{% url 'review_detail' review_pk=review.pk %}">{{ review.title }}</a></h4> 
